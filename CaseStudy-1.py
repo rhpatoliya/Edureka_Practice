@@ -187,3 +187,84 @@ print (s)
 print ("The reversed string(using reversed) is : ", end="")
 print (reverse(s))
 
+#6-Please write a program which count and print the numbers of each character in a string input by console
+def char_frequency(str1):
+    dict = {}
+    for n in str1:
+        keys = dict.keys()
+        if n in keys:
+            dict[n] += 1
+        else:
+            dict[n] = 1
+    return dict
+print(char_frequency('google.com'))
+
+#7-With   two   given   lists   [1,3,6,78,35,55]   and   [12,24,35,24,88,120,155],
+# write   a program to make a list whose elements are intersection of the above given lists.
+def intersection(lst1, lst2):
+    lst3 = [value for value in lst1 if value in lst2]
+    return lst3
+
+
+# Driver Code
+lst1 = [4, 9, 1, 17, 11, 26, 28, 54, 69]
+lst2 = [9, 9, 74, 21, 45, 11, 63, 28, 26]
+print(intersection(lst1, lst2))
+
+#8-With a given list [12,24,35,24,88,120,155,88,120,155],
+# write a program to print this list after removing all duplicate values with original order reserved.
+a = [12,24,35,24,88,120,155,88,120,155]
+
+dup_items = set()
+uniq_items = []
+for x in a:
+    if x not in dup_items:
+        uniq_items.append(x)
+        dup_items.add(x)
+
+print(dup_items)
+
+#By using list comprehension,
+#9- please write a program to print the list after removing the value 24 in [12,24,35,24,88,120,155].
+numbers = [12,24,35,24,88,120,155]
+numbers = [x for (i,x) in enumerate(numbers) if i not in (1,3)]
+print(numbers)
+
+#By using list comprehension,
+#-10 please write a program to print the list after removing the 0th,4th,5th numbers in [12,24,35,70,88,120,155]
+color = [12,24,35,70,88,120,155]
+color = [x for (i,x) in enumerate(color) if i not in (0,4,5)]
+print(color)
+
+#-11 By using list comprehension,
+# please write a program to print the list after removing delete numbers
+# which are divisible by 5 and 7 in [12,24,35,70,88,120,155]
+lst = [12,24,35,70,88,120,155]
+lst = [x for x in lst if x%5!=0 and x%7!=0]
+print lst # [12, 24, 88]
+
+#-12 Please  write  a  program  to  randomly  generate  a  list  with  5  numbers,
+# which  are divisible by 5 and 7 , between 1 and 1000 inclusive.
+count = 0
+for i in range(1,1001):
+    if i%3 and i%5 and i%7:
+        count += 1
+print(count)
+
+import random
+print random.sample(range(1,1000), 5)
+
+import random
+print random.sample([i for i in range(1,1001) if i%5==0 and i%7==0], 5)
+
+#-13 Write  a  program  to  compute  1/2+2/3+3/4+...+n/n+1  with  a  given  n  input  by console (n>0)
+def sum(n):
+    i = 1
+    s = 0.0
+    for i in range(1, n + 1):
+        s = s + 1 / i;
+    return s;
+# Driver Code
+n = 5
+print("Sum is", round(sum(n), 6))
+
